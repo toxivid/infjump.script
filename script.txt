@@ -17,3 +17,126 @@ UIS.InputBegan:connect(function(UserInput)
         end)
     end
 end)
+
+
+
+
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local tabFrame = Instance.new("Frame")
+local LeftPaimbotTab = Instance.new("TextButton")
+local PlayerTab = Instance.new("TextButton")
+local VisualsTab = Instance.new("TextButton")
+local ExtrasTab = Instance.new("TextButton")
+local contentFrame = Instance.new("Frame")
+local contentLabel = Instance.new("TextLabel")
+
+-- Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)  -- Dark background
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.1, 0, 0.1, 0)  -- Position it a bit away from the screen edges
+main.Size = UDim2.new(0, 500, 0, 300)  -- Larger window
+main.Active = true
+main.Draggable = false
+
+-- Tab Frame
+tabFrame.Parent = main
+tabFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)  -- Darker background for tabs
+tabFrame.BorderSizePixel = 0
+tabFrame.Position = UDim2.new(0, 0, 0, 0)
+tabFrame.Size = UDim2.new(1, 0, 0, 30)  -- Tabs at the top
+
+-- Left Paimbot Tab
+LeftPaimbotTab.Name = "LeftPaimbotTab"
+LeftPaimbotTab.Parent = tabFrame
+LeftPaimbotTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+LeftPaimbotTab.BorderSizePixel = 0
+LeftPaimbotTab.Position = UDim2.new(0, 0, 0, 0)
+LeftPaimbotTab.Size = UDim2.new(0.25, 0, 1, 0)
+LeftPaimbotTab.Font = Enum.Font.SourceSans
+LeftPaimbotTab.Text = "Left Paimbot"
+LeftPaimbotTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+LeftPaimbotTab.TextSize = 18
+
+-- Player Tab
+PlayerTab.Name = "PlayerTab"
+PlayerTab.Parent = tabFrame
+PlayerTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+PlayerTab.BorderSizePixel = 0
+PlayerTab.Position = UDim2.new(0.25, 0, 0, 0)
+PlayerTab.Size = UDim2.new(0.25, 0, 1, 0)
+PlayerTab.Font = Enum.Font.SourceSans
+PlayerTab.Text = "Player"
+PlayerTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerTab.TextSize = 18
+
+-- Visuals Tab
+VisualsTab.Name = "VisualsTab"
+VisualsTab.Parent = tabFrame
+VisualsTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+VisualsTab.BorderSizePixel = 0
+VisualsTab.Position = UDim2.new(0.5, 0, 0, 0)
+VisualsTab.Size = UDim2.new(0.25, 0, 1, 0)
+VisualsTab.Font = Enum.Font.SourceSans
+VisualsTab.Text = "Visuals"
+VisualsTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+VisualsTab.TextSize = 18
+
+-- Extras Tab
+ExtrasTab.Name = "ExtrasTab"
+ExtrasTab.Parent = tabFrame
+ExtrasTab.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+ExtrasTab.BorderSizePixel = 0
+ExtrasTab.Position = UDim2.new(0.75, 0, 0, 0)
+ExtrasTab.Size = UDim2.new(0.25, 0, 1, 0)
+ExtrasTab.Font = Enum.Font.SourceSans
+ExtrasTab.Text = "Extras"
+ExtrasTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExtrasTab.TextSize = 18
+
+-- Content Frame
+contentFrame.Parent = main
+contentFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+contentFrame.BorderSizePixel = 0
+contentFrame.Position = UDim2.new(0, 0, 0, 30)  -- Below the tabs
+contentFrame.Size = UDim2.new(1, 0, 1, -30)  -- Fill the remaining space
+
+-- Content Label (for random text)
+contentLabel.Parent = contentFrame
+contentLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+contentLabel.BorderSizePixel = 0
+contentLabel.Size = UDim2.new(1, 0, 1, 0)  -- Fill the content area
+contentLabel.Font = Enum.Font.SourceSans
+contentLabel.Text = "Click a tab to see content!"
+contentLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+contentLabel.TextSize = 18
+contentLabel.TextWrapped = true
+
+-- Functions to change content when tab is clicked
+local function changeContent(text)
+    contentLabel.Text = text
+end
+
+LeftPaimbotTab.MouseButton1Click:Connect(function()
+    changeContent("This is the Left Paimbot tab!")
+end)
+
+PlayerTab.MouseButton1Click:Connect(function()
+    changeContent("This is the Player tab!")
+end)
+
+VisualsTab.MouseButton1Click:Connect(function()
+    changeContent("This is the Visuals tab!")
+end)
+
+ExtrasTab.MouseButton1Click:Connect(function()
+    changeContent("This is the Extras tab!")
+end)
